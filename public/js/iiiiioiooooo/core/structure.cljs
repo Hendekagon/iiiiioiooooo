@@ -45,7 +45,11 @@
   (cond
     (list? b) :list
     (number? b) :number
+<<<<<<< HEAD
     (symbol? b) (str b)
+=======
+    (symbol? b) :symbol
+>>>>>>> HEAD@{1}
     (string? b) :string
     (vector? b) :vector
     (map? b) :map
@@ -226,10 +230,7 @@
 
 (defn maybe-open
   ([loc meta]
-    (if meta
-      (zip/replace loc (with-meta (zip/node loc) (update-in meta [:open] not)))
-      loc
-    )
+   (zip/replace loc (with-meta (zip/node loc) (update-in (or meta {}) [:open] not)))
   )
   ([loc] (maybe-open loc (meta (zip/node loc))))
 )
@@ -496,7 +497,7 @@
             (with-meta
               '((fn [x] (list (rest x) (cons (read-string (first x)) [x])))
                 (quote ["quote" fn [x] (list (rest x) (cons (read-string (first x)) [x]))])
-                ) {:open true})
+               ) {:open true})
          }
           {:open true}
        )
