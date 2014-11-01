@@ -5,7 +5,7 @@
   )
 )
 
-; Box of Pencils, Box of Matches, Box of Tea
+; Box of Pencils
 
 ; This is an experimental Structure Editor for Clojure.
 ; It works by having a zipper on a map which has a focus, selection and context.
@@ -21,6 +21,8 @@
 ; It's a product of evolution.
 ; The most recent change was to get away from HTML and SVG for the GUI which I had before.
 ; I decided I hated HTML too much, so switched to canvas, and now I'm moving to WebGL.
+;
+;
 
 (defn maybe [f x] (if x (f x) x))
 
