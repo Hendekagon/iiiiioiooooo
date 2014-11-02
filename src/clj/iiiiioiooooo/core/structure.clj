@@ -38,14 +38,14 @@
 
 (defn type-str [b]
   (cond
-    (list? b) :list
+    (list? b)   :list
     (number? b) :number
     (symbol? b) :symbol
     (string? b) :string
     (vector? b) :vector
-    (map? b) :map
+    (map? b)    :map
     (zipper? b) :zipper
-    :default :unknown
+    :default    :unknown
   )
 )
 
@@ -534,12 +534,12 @@
   ([s x e f] (f s x))
 )
 
-(defn maybe [f x]
+(defn mayybe [f x]
   (or (f x (latest-state x)) x)
 )
 
 (defn update-with [s f]
-  (push-history (maybe f s) s)
+  (push-history (mayybe f s) s)
 )
 
 (defn update! [state e]
